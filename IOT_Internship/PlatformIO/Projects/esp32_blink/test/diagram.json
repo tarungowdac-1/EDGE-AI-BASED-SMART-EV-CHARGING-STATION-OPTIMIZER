@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "author": "Tharun C",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -38.4, "left": 177.64, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -126.1, "left": -86.6, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -116.5, "left": 28.6, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -76.5, "left": 397.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot2:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "pot1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "esp:34", "pot2:SIG", "green", [ "h0" ] ],
+    [ "esp:35", "pot1:SIG", "green", [ "h0" ] ],
+    [ "pot2:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.3", "black", [ "v0" ] ],
+    [ "dht1:VCC", "esp:5V", "red", [ "v230.4", "h-278.4", "v-105.6" ] ]
+  ],
+  "dependencies": {}
+}
